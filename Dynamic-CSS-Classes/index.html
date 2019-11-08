@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic CSS Classes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="root">
+        <h1>Dynamic CSS Classes</h1>
+        <hr/>
+        <button v-on:click="active = !active">Active</button>
+
+        <div v-bind:class="activeClass">
+            <span>Ethan</span>
+        </div>
+
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#root",
+
+            data: {
+                active: false,
+            },
+
+            computed: {
+                activeClass: function () {
+                    return {
+                        active: this.active
+                    };
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

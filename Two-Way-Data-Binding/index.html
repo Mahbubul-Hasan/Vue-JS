@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Two Way Data Binding</title>
+</head>
+<body>
+
+    <div id="root">
+        <h1>Two Way Data Binding</h1>
+        <hr/>
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td>
+                    <input type="text" name="name" v-model="name">
+                </td>
+                <td>
+                     <span>{{ name }}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Age: </td>
+                <td>
+                    <input type="text" name="age" v-model="age">
+                </td>
+
+                <td>
+                    <span>{{ age }}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#root",
+
+            data: {
+                name: "",
+                age : ""
+            }
+        })
+    </script>
+
+</body>
+</html>

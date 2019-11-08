@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key Event Modifier</title>
+</head>
+<body>
+
+    <div id="root">
+        <h1>Key Event Modifier</h1>
+        <hr/>
+        First Name: <input type="text" v-on:keyup.tab="result" v-model="firstName"><br><br>
+          Last Name:  <input type="text" v-on:keyup="result" v-model="lastName"><br><br>
+        Ful Name: <span v-text="fullName"></span>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#root",
+
+            data: {
+                firstName: "",
+                lastName : "",
+                fullName : ""
+            },
+
+            methods: {
+                result: function () {
+                    this.fullName = this.firstName +" "+ this.lastName;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

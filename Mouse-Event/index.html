@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Event</title>
+
+    <style>
+        .canvas{
+            width: 600px;
+            padding:200px 20px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root">
+        <h1>Mouse Event</h1>
+
+        <!-----------------ON CLICK-------------->
+        <!--<button v-on:click="age++">Add a year</button>-->
+        <!--<button v-on:click="age--;">Subtract a year</button>-->
+
+        <!-------------------OR-------------->
+
+        <button v-on:click="addYear(1)">Add a year</button>
+        <button v-on:click="subYear(1)">Subtract a year</button>
+
+        <!-----------------ON DOUBLE CLICK-------------->
+
+        <button v-on:dblclick="addYear(10)">Add 10 years</button>
+        <button v-on:dblclick="subYear(10)">Subtract 10 years</button>
+
+        <p>My age is {{ age }}</p>
+        <!-----------------ON MOUSE MOVE-------------->
+        <br/>
+        <div class="canvas" v-on:mousemove="updateXY">({{ x }}, {{ y }})</div>
+
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        var app = new Vue(
+            {
+                el   : "#root",
+
+                data : {
+                    age: 25,
+                    x  : 0,
+                    y  : 0,
+                },
+
+                methods: {
+                    addYear: function(inc) {
+                        this.age = this.age + inc;
+                    },
+
+                    subYear: function (dec) {
+                        this.age = this.age - dec;
+                    },
+
+                    updateXY: function (event) {
+                        console.log(event);
+                        this.x = event.offsetX;
+                        this.y = event.offsetY;
+                    }
+                }
+            }
+        );
+    </script>
+</body>
+</html>

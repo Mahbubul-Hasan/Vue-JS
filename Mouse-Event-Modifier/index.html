@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Event Modifier</title>
+
+    <style>
+        .canvas{
+            width: 600px;
+            padding:200px 20px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root">
+        <h1>Mouse Event Modifier</h1>
+
+        <!-----------------Stop-------------->
+
+        <div class="canvas" v-on:mousemove="updateXY">({{ x }}, {{ y }})
+            <br>
+            <br>
+            <br>
+            <span v-on:mousemove.stop="">Dead Spot</span>
+        </div>
+
+        <!-----------------Once-------------->
+        <button v-on:click.once="sayHi">Say Hi</button>
+        <br><br>
+
+        <!-----------------Prevent-------------->
+        <a v-on:click.prevent="" href="https://www.google.com" target="_blank">google.com</a>
+        <br><br>
+
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        var app = new Vue(
+            {
+                el: "#root",
+
+                data: {
+                    x: 0,
+                    y: 0,
+                },
+
+                methods: {
+                    updateXY: function (event) {
+                        this.x = event.offsetX;
+                        this.y = event.offsetY;
+                    },
+
+                    sayHi:function () {
+                        alert("Hi")
+                    }
+                }
+            }
+        );
+    </script>
+</body>
+</html>

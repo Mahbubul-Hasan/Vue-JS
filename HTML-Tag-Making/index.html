@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="vue-app">
+        <span v-html="websiteTag"></span>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        
+        var app = new Vue({
+            el: '#vue-app',
+
+            data: {
+                websiteTag: '<a href="https://www.thenetninja.co.uk/">The Net Ninja Website</a>',
+            }
+        });
+
+    </script>
+
+</body>
+</html>
